@@ -18,16 +18,14 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
-    - numpy =1.21
   host:
-    - conda-build
-    - llvm-openmp  # [osx]
     - cython
     - pip
     - python
     - numpy =1.21
+    - llvm-openmp  # [osx]
+    - libgomp  # [linux]
   run:
-    - _openmp_mutex  # [linux]
     - llvm-openmp  # [osx]
     - pillow
     - psutil
